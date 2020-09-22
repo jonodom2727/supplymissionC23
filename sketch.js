@@ -24,7 +24,7 @@ function setup() {
 	box1.shapeColor="red"
 	box2.shapeColor="red"
 	box3.shapeColor="red" 
-	
+
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -79,5 +79,12 @@ function keyPressed() {
   }
 }
 
+function keyPressed() { if (keyCode === LEFT_ARROW)
+	 { helicopterSprite.x=helicopterSprite.x-20; translation={x:-20,y:0}
+	  Matter.Body.translate(packageBody, translation) } 
+	  
+	  else if (keyCode === RIGHT_ARROW) { helicopterSprite.x=helicopterSprite.x+20; translation={x:20,y:0}
+	   Matter.Body.translate(packageBody, translation) }
 
+	   else if (keyCode === DOWN_ARROW) { Matter.Body.setStatic(packageBody,false); } }
 
